@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="sportStoreAdminApp">
+<head>
+    <title>Administration</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <base href="/admin.html">
+
+</head>
+<body>
+<ng-view></ng-view>
+<script src="node_modules/firebase/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDu95KPkLH9tULceYvUvOQA1ZaDxa5PDXg",
+        authDomain: "sportsstore-230a1.firebaseapp.com",
+        databaseURL: "https://sportsstore-230a1.firebaseio.com",
+        projectId: "sportsstoreadmin-42c7d",
+        storageBucket: "sportsstoreadmin-42c7d.appspot.com",
+        messagingSenderId: "719603745180"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="src/app/SportsStoreAdminApp.js"></script>
+<script src="src/app/SportStoreAdminConfig.js"></script>
+<script src="src/app/AuthenticationCtrl.js"></script>
+<script src="src/app/mainCtrl.js"></script>
+<script src="src/app/OrdersCtrl.js"></script>
+</body>
+</html>
