@@ -19,14 +19,20 @@ import java.io.Serializable;
 public class LoginBean implements Serializable {
     @EJB
     private UserFacade userFacade;
-    @Getter @Setter
+
+    @Getter
+    @Setter
+    private String nume;
+    @Getter
+    @Setter
     private String email;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String parola;
 
     public String authenticateUser(String email, String pass) {
         User user = userFacade.getUserByEmailAndPass(email, pass);
-        if(user != null) {
+        if (user != null) {
             HttpSession session = SessionUtils.getSession();
             session.setAttribute("username", user.getNume());
             session.setAttribute("userId", user.getId());
@@ -38,5 +44,10 @@ public class LoginBean implements Serializable {
                             "Please enter correct email and Password"));
         }
         return "login";
+    }
+
+    public String add() {
+        userFacade.addNewAccount(nume, email, parola);
+        return "projects";
     }
 }

@@ -19,9 +19,15 @@ public class UserFacadeImplementation implements UserFacade {
         query = query.setParameter("email", email);
         query = query.setParameter("password", password);
         try {
-            return (User)query.getSingleResult();
+            return (User) query.getSingleResult();
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @Override
+    public void addNewAccount(String nume, String email, String parola) {
+        User user = User.builder().nume(nume).email(email).parola(parola).build();
+        entityManager.persist(user);
     }
 }
