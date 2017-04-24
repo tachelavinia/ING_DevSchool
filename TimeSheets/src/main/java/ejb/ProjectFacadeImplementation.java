@@ -19,4 +19,11 @@ public class ProjectFacadeImplementation implements ProjectFacade {
         Query query = entityManager.createQuery("SELECT p FROM Project p");
         return (List<Project>) query.getResultList();
     }
+
+    @Override
+    public List<Project> getAllProjectsForCorrespondentTeam(int teamId) {
+        Query query = entityManager.createQuery("SELECT p FROM Project p WHERE p.team.id = :teamId");
+        query = query.setParameter("teamId", teamId);
+        return (List<Project>) query.getResultList();
+    }
 }
