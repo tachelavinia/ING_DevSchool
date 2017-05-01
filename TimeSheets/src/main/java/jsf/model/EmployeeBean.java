@@ -33,6 +33,10 @@ public class EmployeeBean implements Serializable {
         return employeeFacade.getAllEmployeesForCorrespondentProject(getParam());
     }
 
+    public Employee getEmployeeById() {
+        return employeeFacade.getEmployeeById(getParam());
+    }
+
     public int getParam() {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();

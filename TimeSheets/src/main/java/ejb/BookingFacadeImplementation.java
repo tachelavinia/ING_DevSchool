@@ -19,7 +19,7 @@ public class BookingFacadeImplementation implements BookingFacade {
     @Override
     public List<Booking> getBookingByEmployee(int employeeId) {
         Query query = entityManager.createQuery("SELECT e FROM Booking e WHERE e.employee.id = :employeeId");
-        query = query.setParameter(employeeId, employeeId);
+        query = query.setParameter("employeeId", employeeId);
         return (List<Booking>) query.getResultList();
     }
 

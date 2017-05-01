@@ -20,4 +20,11 @@ public class EmployeesFacadeImplementation implements EmployeeFacade {
         query = query.setParameter("projectId", projectId);
         return (List<Employee>) query.getResultList();
     }
+
+    @Override
+    public Employee getEmployeeById(int employeeId) {
+        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE e.id = :employeeId");
+        query = query.setParameter("employeeId", employeeId);
+        return (Employee) query.getSingleResult();
+    }
 }
